@@ -8,7 +8,7 @@ A lightweight RPG game for Arduino Micro and similar microcontrollers with simpl
 2. Collect useful items and loot
 3. Fight enemies in turn-based combat
 4. Improve your stats and continue progressing
-5. Reach the goal to finish the adventure
+5. Have fun!
 
 Use the pushbuttons to navigate menus and the OLED display to view the game state.
 
