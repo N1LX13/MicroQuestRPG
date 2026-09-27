@@ -1866,14 +1866,14 @@ void setup() {
     20
   );
 
-  display.print("PLAYER RPG");
+  display.print("Arduino RPG");
 
   display.setCursor(
     25,
     34
   );
 
-  display.print("ADVENTURE");
+  display.print("adventure");
 
   display.display();
 
