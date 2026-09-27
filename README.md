@@ -20,14 +20,19 @@ Use the pushbuttons to navigate menus and the OLED display to view the game stat
 
 ## OLED and Button Pins
 
-| Component | Pin |
-|-----------|-----|
-| OLED SDA | A4 |
-| OLED SCL | A5 |
-| Button Up | 2 |
-| Button Down | 3 |
-| Button Select | 4 |
+OLED PINS:
 
+VCC: 5V
+GND: GND
+SCL: Pin A5
+SDA: Pin A4
+
+BUTTON PINS:
+
+UP: Pin 4
+DOWN: Pin 5
+LEFT: Pin 6
+RIGHT: Pin 7
 ## Getting Started
 
 1. Open the project in the Arduino IDE
