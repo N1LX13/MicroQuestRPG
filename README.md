@@ -40,3 +40,6 @@ RIGHT: Pin 7
 3. Upload the sketch to the board
 4. Connect the OLED and buttons to the pins above
 5. Power on and start playing
+
+
+<img width="812" height="393" alt="image" src="https://github.com/user-attachments/assets/50d281e4-23e0-40ba-8bec-c8406e5ad8a7" />
