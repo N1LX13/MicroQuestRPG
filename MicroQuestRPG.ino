@@ -1,4 +1,3 @@
-
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -42,13 +41,13 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 // PLAYER
 // =====================================================
 
-int nilsX = 50 * TILE;
-int nilsY = 62 * TILE;
+int playerX = 50 * TILE;
+int playerY = 62 * TILE;
 
 int cameraX;
 int cameraY;
 
-byte nilsDirection = 0;
+byte playerDirection = 0;
 
 int hp = 100;
 int maxHP = 100;
@@ -377,8 +376,8 @@ void gainXP(int amount) {
 
 int enemyInDirection(byte direction) {
 
-  int targetX = nilsX;
-  int targetY = nilsY;
+  int targetX = playerX;
+  int targetY = playerY;
 
   if (direction == 0)
     targetY += TILE;
@@ -524,8 +523,8 @@ void enemyAttack() {
 
     hp = maxHP;
 
-    nilsX = 50 * TILE;
-    nilsY = 60 * TILE;
+    playerX = 50 * TILE;
+    playerY = 60 * TILE;
 
     for (int e = 0; e < MAX_ENEMIES; e++)
       enemies[e].alive = false;
@@ -625,7 +624,7 @@ void updateBattle() {
 
 void moveOrAttack(byte direction) {
 
-  nilsDirection = direction;
+  playerDirection = direction;
 
   int enemy =
     enemyInDirection(direction);
@@ -652,13 +651,13 @@ void moveOrAttack(byte direction) {
   if (direction == 3)
     dx = 3;
 
-  int newX = nilsX + dx;
-  int newY = nilsY + dy;
+  int newX = playerX + dx;
+  int newY = playerY + dy;
 
   if (canMove(newX, newY)) {
 
-    nilsX = newX;
-    nilsY = newY;
+    playerX = newX;
+    playerY = newY;
   }
 }
 
@@ -669,10 +668,10 @@ void moveOrAttack(byte direction) {
 void updateCamera() {
 
   cameraX =
-    nilsX - SCREEN_WIDTH / 2;
+    playerX - SCREEN_WIDTH / 2;
 
   cameraY =
-    nilsY - SCREEN_HEIGHT / 2;
+    playerY - SCREEN_HEIGHT / 2;
 
   int maxX =
     WORLD_W * TILE - SCREEN_WIDTH;
@@ -1005,13 +1004,13 @@ void drawSmallSigns() {
 // SMALL SQUARE PLAYER
 // =====================================================
 
-void drawNils() {
+void drawPlayer() {
 
   int x =
-    nilsX - cameraX;
+    playerX - cameraX;
 
   int y =
-    nilsY - cameraY;
+    playerY - cameraY;
 
   display.fillRect(
     x - 3,
@@ -1048,10 +1047,10 @@ void spawnEnemy() {
       continue;
 
     int px =
-      nilsX / TILE;
+      playerX / TILE;
 
     int py =
-      nilsY / TILE;
+      playerY / TILE;
 
     int ex =
       px + random(-12, 13);
@@ -1160,10 +1159,10 @@ void updateEnemies() {
   lastEnemyMove = millis();
 
   int px =
-    nilsX / TILE;
+    playerX / TILE;
 
   int py =
-    nilsY / TILE;
+    playerY / TILE;
 
   for (int e = 0;
        e < MAX_ENEMIES;
@@ -1756,8 +1755,8 @@ bool nearInn() {
     (INN_Y + INN_H - 1) * TILE;
 
   return
-    abs(nilsX - doorX) <= 10 &&
-    abs(nilsY - doorY) <= 10;
+    abs(playerX - doorX) <= 10 &&
+    abs(playerY - doorY) <= 10;
 }
 
 void sleepAtInn() {
@@ -1806,8 +1805,8 @@ bool nearShop() {
     (SHOP_Y + SHOP_H - 1) * TILE;
 
   return
-    abs(nilsX - doorX) <= 12 &&
-    abs(nilsY - doorY) <= 12;
+    abs(playerX - doorX) <= 12 &&
+    abs(playerY - doorY) <= 12;
 }
 
 // =====================================================
@@ -1867,7 +1866,7 @@ void setup() {
     20
   );
 
-  display.print("NILS RPG");
+  display.print("PLAYER RPG");
 
   display.setCursor(
     25,
@@ -2003,7 +2002,7 @@ void loop() {
 
   drawEnemies();
 
-  drawNils();
+  drawPlayer();
 
   drawHUD();
 
@@ -2011,4 +2010,3 @@ void loop() {
 
   delay(25);
 }
-
