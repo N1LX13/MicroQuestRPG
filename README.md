@@ -4,7 +4,7 @@ A lightweight RPG game for Arduino Micro and similar microcontrollers with simpl
 
 ## How to Play
 
-1. Explore the rooms and interact with the world
+1. Explore the nature and interact with the world
 2. Collect useful items and loot
 3. Fight enemies in turn-based combat
 4. Improve your stats and continue progressing
